@@ -1,0 +1,5 @@
+Go is an open-source programming language created at Google.
+It makes it easy to build simple, reliable, and efficient software.
+Go is known for its simplicity and efficiency.
+The Go programming language is also referred to as Golang.
+Go has a strong emphasis on concurrency and performance.
