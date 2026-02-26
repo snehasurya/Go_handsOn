@@ -1,0 +1,151 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2025-12-19T06:30:50Z"
+  generateName: gin-api-deployment-76bd849664-
+  generation: 1
+  labels:
+    app: gin-app
+    pod-template-hash: 76bd849664
+  name: gin-api-deployment-76bd849664-mgmg7
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: gin-api-deployment-76bd849664
+    uid: f5970dbf-1ba8-4a10-b73c-2d2083fc4e8a
+  resourceVersion: "276694"
+  uid: e86e76da-902f-46cf-8984-1ad63e9e3747
+spec:
+  containers:
+  - image: my-gin-app:latest
+    imagePullPolicy: IfNotPresent
+    name: gin-app
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /root/
+      name: sqlite-storage
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-xptkm
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: docker-desktop
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: sqlite-storage
+    persistentVolumeClaim:
+      claimName: sqlite-pvc
+  - name: kube-api-access-xptkm
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-12-19T06:30:52Z"
+    observedGeneration: 1
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-12-19T06:30:51Z"
+    observedGeneration: 1
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-12-19T06:30:51Z"
+    message: 'containers with unready status: [gin-app]'
+    observedGeneration: 1
+    reason: ContainersNotReady
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-12-19T06:30:51Z"
+    message: 'containers with unready status: [gin-app]'
+    observedGeneration: 1
+    reason: ContainersNotReady
+    status: "False"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-12-19T06:30:51Z"
+    observedGeneration: 1
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://dca2542cf8f9c96350b1f1cc22b6aa0fd6755a47b644685c6bf2187b8d1b219f
+    image: my-gin-app:latest
+    imageID: docker-pullable://my-gin-app@sha256:c53a5ed032893011bdc4b5dd6d2791ab91634f6ce4687a1eab0631ffde205d82
+    lastState:
+      terminated:
+        containerID: docker://dca2542cf8f9c96350b1f1cc22b6aa0fd6755a47b644685c6bf2187b8d1b219f
+        exitCode: 127
+        finishedAt: "2025-12-19T06:33:49Z"
+        message: 'failed to create task for container: failed to create shim task:
+          OCI runtime create failed: runc create failed: unable to start container
+          process: error during container init: exec: "./gin-api": stat ./gin-api:
+          no such file or directory'
+        reason: ContainerCannotRun
+        startedAt: "2025-12-19T06:33:49Z"
+    name: gin-app
+    ready: false
+    resources: {}
+    restartCount: 5
+    started: false
+    state:
+      waiting:
+        message: back-off 2m40s restarting failed container=gin-app pod=gin-api-deployment-76bd849664-mgmg7_default(e86e76da-902f-46cf-8984-1ad63e9e3747)
+        reason: CrashLoopBackOff
+    volumeMounts:
+    - mountPath: /root/
+      name: sqlite-storage
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-xptkm
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 192.168.65.3
+  hostIPs:
+  - ip: 192.168.65.3
+  observedGeneration: 1
+  phase: Running
+  podIP: 10.1.0.6
+  podIPs:
+  - ip: 10.1.0.6
+  qosClass: BestEffort
+  startTime: "2025-12-19T06:30:51Z"
