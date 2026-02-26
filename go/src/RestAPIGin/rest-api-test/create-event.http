@@ -1,0 +1,10 @@
+POST http://localhost:8080/events
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpdmFhbjEyQGdtYWlsLmNvbSIsImV4cCI6MTc1NTUyNzUzMywidXNlcklEIjoyfQ.w00HqxdQCDxBQvdS-du2MHeROoS1Bh7TBU2GYmo77h4
+
+{
+    "name" : "2event",
+    "description" : "2new event",
+    "location" : "new",
+    "dateTime" : "2025-01-16T15:30:00.000Z"
+}

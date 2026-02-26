@@ -1,0 +1,27 @@
+FROM golang:1.24.5-alpine AS builder
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+
+ENV CGO_ENABLED=1
+
+RUN apk --no-cache add build-base
+
+RUN go mod download
+
+COPY . .
+
+RUN go build -o gin-api ./main.go
+
+FROM alpine:latest
+
+WORKDIR /root/
+
+COPY --from=builder /app/gin-api .
+
+COPY api.db .
+
+EXPOSE 8080
+
+CMD ["./gin-api"]

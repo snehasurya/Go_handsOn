@@ -1,0 +1,36 @@
+
+
+
+interview questions
+
+1. current project architecture
+2. java oops concept in go
+3. polymorphysm, abstraction, encapsulation in go
+4. go design pattern
+5. go testing
+6. go syntax n all
+7. database
+8. How do you optimize a slow query?
+9. design patterns
+10. docker file looks like
+11. docker and kubes
+12. composition and interface embedding
+13. drawbacks of go over java
+14. difference between make and new
+15. what is channels, go routines
+16. slice, len, capacity
+17. which packages are in java but not in go
+18. docker & kubes - scaling
+19. database types SQL, NOSQL
+20. database fault tolerance
+21. GCP services
+22. Cloud services
+23. high level design of instagram like app - services required for interface
+24. cloud storage
+25. map, go routines, locks
+26. thread safty
+27. SQL queries
+28. microservices
+29. memory management in go
+30. security and authorizarion and authentication
+ 

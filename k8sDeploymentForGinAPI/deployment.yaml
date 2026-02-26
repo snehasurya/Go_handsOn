@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gin-api-deployment
+spec:
+  replicas: 1 # Since SQLite doesn't support concurrent writes from multiple pods easily, keep this at 1
+  selector:
+    matchLabels:
+      app: gin-app
+  template:
+    metadata:
+      labels:
+        app: gin-app
+    spec:
+      containers:
+      - name: gin-app
+        image: my-gin-app:latest # Ensure this matches your local image name
+        imagePullPolicy: IfNotPresent 
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: sqlite-storage
+          mountPath: /app/data # This must match the WORKDIR in your Dockerfile
+      volumes:
+      - name: sqlite-storage
+        persistentVolumeClaim:
+          claimName: sqlite-pvc

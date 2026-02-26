@@ -1,0 +1,10 @@
+database: 
+employee(id, name, salary, department)
+
+
+select name, salary
+from employee
+where salary <= (select min(salary) from employee)
+
+
+/api/employees/{id}

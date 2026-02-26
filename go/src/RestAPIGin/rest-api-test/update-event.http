@@ -1,0 +1,10 @@
+PUT http://localhost:8080/events/3
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNuZWhhQGdtYWlsLmNvbSIsImV4cCI6MTc1NTUyNzg2MSwidXNlcklEIjoxfQ.OVkHhj2fSsK0oKb6yMvmRMajvsYJRzZQ-1lapp-wczU
+
+{
+    "name" : "pankaj Sneha ",
+    "description" : "updated event",
+    "location" : "pune",
+    "dateTime" : "2025-04-16T15:30:00.000Z"
+}

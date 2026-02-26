@@ -1,0 +1,17 @@
+
+
+student 
+id
+roll no
+name
+subject1
+subject2
+subject3
+
+
+select name 
+from student 
+where name like "A%"
+order by subject2 desc
+limit 1
+

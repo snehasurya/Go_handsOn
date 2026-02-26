@@ -1,0 +1,28 @@
+# Stage 1: Build
+FROM golang:1.24.5-alpine AS builder
+RUN apk add --no-cache build-base
+WORKDIR /build
+COPY go.mod go.sum ./
+ENV CGO_ENABLED=1
+RUN go mod download
+COPY . .
+RUN go build -o gin-api ./main.go
+
+# Stage 2: Runtime
+FROM alpine:latest
+# 1. Install libc6-compat for CGO/SQLite support
+RUN apk add --no-cache libc6-compat
+
+# 2. Use /app instead of /root
+WORKDIR /app
+
+# 3. Create a dedicated folder for the database
+RUN mkdir data
+
+# 4. Copy the binary
+COPY --from=builder /build/gin-api .
+
+EXPOSE 8080
+
+# Run the app from the /app directory
+CMD ["./gin-api"]

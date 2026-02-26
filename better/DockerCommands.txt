@@ -1,0 +1,46 @@
+docker commands
+
+1. docker pull <image>
+
+2. docker run <image>
+
+3. docker run -d <image>
+
+4. docker ps
+
+5. docker ps -a
+
+6. docker start <container>
+
+7. docker stop <container>
+
+8. docker kill <container>
+
+9. docker restart <container>
+
+11. docker images
+
+12. docker build -t <image name>
+
+13. docker rmi <image name>
+
+14. docker create 
+
+15. docker rm <container>
+
+16. docker exec -it <container> command
+
+
+docker network create <network name>
+
+docker network ls
+
+docker network rm <network name>
+
+docker network inspect <network name>
+
+docker run --network <network name> <image name>
+
+docker network connect <network name> <container>
+
+docker network disconnect <network > <container>
